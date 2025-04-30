@@ -24,6 +24,7 @@ spec:
         env:
         - name: TZ
           value: "America/New_York"
-        volumes:
-        - name: config
-          emptyDir: {}
+
+      volumes:
+      - name: config
+        emptyDir: {}
