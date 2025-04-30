@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: home-assistant
+  namespace: home
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app:home-assistant
+    template:
+      metadata:
+        labels:
+          app: home-assistant
+      spec:
+        containers:
+        - name: home-assistant
+        image: ghcr.io/homeassistant/home-assistant:stable
+        ports:
+        -containerPort: 8123
+        volumeMounts:
+        - name: config
+          mountPath: /config
+        env:
+        - name: TZ
+          value: "America/New_York"
+        volumes:
+        - name: config
+          emptyDir: {}
