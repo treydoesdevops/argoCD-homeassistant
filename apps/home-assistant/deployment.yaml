@@ -8,13 +8,13 @@ spec:
   selector:
     matchLabels:
       app: home-assistant
-    template:
-      metadata:
-        labels:
-          app: home-assistant
-      spec:
-        containers:
-        - name: home-assistant
+  template:
+    metadata:
+      labels:
+        app: home-assistant
+    spec:
+      containers:
+      - name: home-assistant
         image: ghcr.io/homeassistant/home-assistant:stable
         ports:
         -containerPort: 8123
